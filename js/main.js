@@ -9,6 +9,7 @@ const getProducts = () => {
             let products = JSON.parse(xhr.responseText)
             // console.log(products)
             // console.log(Object.keys(products))
+            // console.log(products)
             products = Object.keys(products).map(key => {
                 let product = products[key]
                 // console.log(key)
@@ -16,7 +17,7 @@ const getProducts = () => {
                 return {...product, id: key}
             })
             printProducts(products)
-            console.log(products)
+            // console.log(products)
         }
     })
 
@@ -71,3 +72,60 @@ const printProducts = arrayProducts => {
 }
 
 getProducts()
+
+
+
+
+const data = {
+  "key1": {
+    name : "Clau",
+    lastName: "Rodriguez"
+  },
+  "key2": {
+    name : "Emi",
+    lastName: "De Leon"
+  },
+  "key3": {
+    name : "Elias",
+    lastName: "Herrera"
+  }
+}
+/*
+[
+  {
+    name : "Emi",
+    lastName: "De Leon"
+  },
+  {
+    name : "Elias",
+    lastName: "Herrera"
+  }
+]*/
+
+// las propiedades del objeto
+console.log(Object.keys(data))
+/*["key1", "key2"]*/
+
+// los valores de las propiedades
+console.log(Object.values(data))
+/*[12, {}]*/
+
+//los valores y las proiedades del objeto
+console.log(Object.entries(data))
+
+/*[
+  ["key", {}],
+  ["key", 12],
+  ["key", {}],
+]*/
+
+// []
+// let kodersArray = Object.keys(data).map((key) =>{
+//   return {...data[key], key}
+// })
+
+let kodersArray = Object.keys(kodersArray).map((key) => ({...data[key], key}) )
+
+console.log("----")
+
+console.log(kodersArray)
